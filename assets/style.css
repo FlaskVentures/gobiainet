@@ -4,8 +4,8 @@
   --bg-alt: #101018;
   --card: #14141f;
   --border: #23232f;
-  --text: #f3f3f7;
-  --text-dim: #9494a6;
+  --text: #ffffff;
+  --text-dim: #b8c2dd;
   --accent: #7c9cff;
   --accent-2: #22d3a0;
   --accent-warm: #ffb977;
@@ -177,8 +177,15 @@ p.lead {
 }
 .grid-3 { grid-template-columns: repeat(3, 1fr); }
 .grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 1000px) {
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
 @media (max-width: 860px) {
   .grid-3, .grid-2 { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .grid-4 { grid-template-columns: 1fr; }
 }
 
 .card {
@@ -215,6 +222,8 @@ p.lead {
   .path-grid { grid-template-columns: 1fr; }
 }
 .path-card {
+  display: flex;
+  flex-direction: column;
   position: relative;
   background: var(--card);
   border: 1px solid var(--border);
@@ -276,6 +285,7 @@ p.lead {
   gap: 8px;
   font-weight: 600;
   font-size: 0.92rem;
+  margin-top: auto; /* pins the link to the card bottom so both cards align */
 }
 .path-card.bnpl .go { color: var(--accent); }
 .path-card.consulting .go { color: var(--accent-2); }
